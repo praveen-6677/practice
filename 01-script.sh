@@ -1,0 +1,5 @@
+#!/bin/bash
+PERSON1 =NIHAL
+PERSON2 =HAPPY
+
+echo "$PERSON1 :: Hi $PERSON2"
