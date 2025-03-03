@@ -74,3 +74,4 @@ if  [ $? -ne 0 ]
      exit 1
    else 
      echo "success"
+  fi   
