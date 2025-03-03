@@ -10,7 +10,7 @@ if [ $ID -ne 0 ]
 fi  
 
 dnf module disable nodejs -y
-if ($? -ne 0)
+if [ $? -ne 0 ]
    then
      echo "error"
      exit 1
@@ -18,10 +18,10 @@ if ($? -ne 0)
      echo "success"
  fi    
 dnf module enable nodejs:18 -y
-if ($? -ne 0)
+if  [ $? -ne 0 ]
    then
      echo "error"
      exit 1
    else 
      echo "success"
- fi   
+fi   
