@@ -25,3 +25,4 @@ if  [ $? -ne 0 ]
    else 
      echo "success"
 fi   
+dnf install nodejs -y
