@@ -8,70 +8,46 @@ if [ $ID -ne 0 ]
   else 
      echo " you are root user"
 fi  
+check() {
+  if  [ $1 -ne 0 ]
+   then
+     echo "$1::failed"
+     exit 1
+   else 
+     echo "$2::success"
+fi 
+
+}
   
 dnf install nodejs -y
-if  [ $? -ne 0 ]
-   then
-     echo "error"
-     exit 1
-   else 
-     echo "success"
-fi 
-useradd roboshop
-dnf install nodejs -y
-if  [ $? -ne 0 ]
-  then
-   echo "error"
-   exit 1
+check $? "installing of nodejs is "
+
+id roboshop
+If [ $? -ne 0 ]
+  then 
+  useradd roboshop
   else 
-     echo "success"
-fi     
+     echo "$2 exixts skipping"
+
+check $? "adding user roboshop"
+   
  mkdir -p  /app
- if  [ $? -ne 0 ]
-   then
-     echo "error"
-     exit 1
-   else 
-     echo "success"
- fi    
-     
+ check $? "adding  app directory"
+   
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
- if  [ $? -ne 0 ]
-   then
-     echo "error"
-     exit 1
-   else 
-     echo "success"
- fi    
+check $? "downloading catalogue"
+
  cd /app 
- if  [ $? -ne 0 ]
-   then
-     echo "error"
-     exit 1
-   else 
-     echo "success"
- fi  
+ check $? "changing directory"
+ 
  unzip /tmp/catalogue.zip
- if  [ $? -ne 0 ]
-   then
-     echo "error"
-     exit 1
-   else 
-     echo "success"
- fi  
-cd /app
-if  [ $? -ne 0 ]
-   then
-     echo "error"
-     exit 1
-   else 
-     echo "success"
- fi  
+ check $? "unzipping catalogue"
+
+ cd /app
+ check $? "changing to app"
+
  npm install 
- if  [ $? -ne 0 ]
-   then
-     echo "error"
-     exit 1
-   else 
-     echo "success"
-  fi   
+ check $? "installing of npm"
+
+ 
+    
