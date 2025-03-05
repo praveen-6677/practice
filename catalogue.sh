@@ -23,11 +23,13 @@ dnf install nodejs -y
 check $? "installing of nodejs is "
 
 id roboshop
-If [ $? -ne 0 ]
+if [ $? -ne 0 ]
   then 
   useradd roboshop
+  check $? "user roboshop"
   else 
      echo "$2 exixts skipping"
+  fi   
 
 check $? "adding user roboshop"
    
