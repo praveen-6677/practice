@@ -11,10 +11,10 @@ fi
 check() {
   if  [ $1 -ne 0 ]
    then
-     echo "$1::failed"
+     echo -e "$2...failed"
      exit 1
    else 
-     echo "$2::success"
+     echo  -e "$2...success"
 fi 
 
 }
