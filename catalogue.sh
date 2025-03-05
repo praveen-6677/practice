@@ -49,5 +49,30 @@ check $? "downloading catalogue"
  npm install 
  check $? "installing of npm"
 
- 
-    
+ cp /home/ec2-user/practice/catalogue.service /etc/systemd/system/catalogue.service
+ check $? "copying catalogue.service"
+
+ systemctl daemon-reload
+ check $? "reloading daemon"
+
+ systemctl enable catalogue
+ check $? "enabling daemon"
+
+ systemctl start catalogue
+ check $? "stating catalogue"
+
+ cp /home/ec2-user/practice/mongo.repo /etc/yum.repos.d/mongo.repo
+ check $? "copying mong.repo"
+
+ dnf install mongodb-org-shell -y
+ check $? "installing mongo-org"
+
+ mongo --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js
+ check $? "loading catlogue into mongdb"
+
+
+
+
+
+
+
