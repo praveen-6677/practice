@@ -1,6 +1,6 @@
-[mongodb-org-5.0]
-name=MongoDB 5.0 Repository
-baseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/5.0/x86_64/
+echo "[mongodb-org-8.0]
+name=MongoDB 8.0 Repository
+baseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/8.0/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc" | sudo tee /etc/yum.repos.d/mongodb-org-5.0.repo
+gpgkey=https://www.mongodb.org/static/pgp/server-8.0.asc" | sudo tee /etc/yum.repos.d/mongodb-org-8.0.repo
